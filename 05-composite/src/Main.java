@@ -1,15 +1,20 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        /// Using the Composite pattern makes sense only when the core model of your app can be represented as a tree.
+        /// That means you don’t need separate logic for handling a single object (leaf) and a collection of objects (composite).
+        /// You just call the same method, and the right behavior happens.
+        Developer dev1 = new Developer("Alice", "Frontend Developer");
+        Developer dev2 = new Developer("Bob", "Backend Developer");
+        Designer des1 = new Designer("Charlie", "UI/UX Designer");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        CompanyDirectory devDirectory = new CompanyDirectory();
+        devDirectory.addEmployee(dev1);
+        devDirectory.addEmployee(dev2);
+
+        CompanyDirectory directory = new CompanyDirectory();
+        directory.addEmployee(devDirectory);
+        directory.addEmployee(des1);
+
+        directory.showDetails();
     }
 }
