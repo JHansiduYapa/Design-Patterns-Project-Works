@@ -6,7 +6,7 @@ public class Main {
         ob1.placeOrder();
         OrderManagmentService ob2 = OrderManagmentService.getInstance();
         if (ob2 == ob1){
-            System.out.println("Objects are same");
+            System.out.println("Objects");
         }
     }
 }
